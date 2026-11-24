@@ -12,3 +12,10 @@ export const ROLES = {
   STUDENT: "student",
   LIBRARIAN: "librarian",
 };
+export const LIBRARY_DEPARTMENTS = [
+  "Circulation Desk",
+  "Reference Section",
+  "E-Library",
+  "Periodicals",
+  "Administration",
+];

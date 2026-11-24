@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FACULTIES, ROLES } from "../constants";
 import { saveUser } from "../utils/auth";
+import { FACULTIES, ROLES, LIBRARY_DEPARTMENTS } from "../constants";
 
 export default function Register() {
   const [form, setForm] = useState({
     fullName: "",
     studentId: "",
     email: "",
-    faculty: "",
+    faculty: "",    
+    department: "",
     role: ROLES.STUDENT,
     password: "",
     confirm: "",
@@ -26,7 +27,8 @@ export default function Register() {
     if (form.fullName.trim().length < 3) err.fullName = "Full name must be at least 3 characters";
     if (!/^\d{6,10}$/.test(form.studentId)) err.studentId = "ID must be 6 to 10 digits";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) err.email = "Enter a valid email address";
-    if (!form.faculty) err.faculty = "Please choose your faculty";
+       if (form.role === ROLES.STUDENT && !form.faculty) err.faculty = "Please choose your faculty";
+    if (form.role === ROLES.LIBRARIAN && !form.department) err.department = "Please choose your department";
     if (form.password.length < 6 || !/\d/.test(form.password))
       err.password = "Password must be at least 6 characters and include a number";
     if (form.confirm !== form.password) err.confirm = "Passwords do not match";
@@ -44,7 +46,8 @@ export default function Register() {
       fullName: form.fullName.trim(),
       studentId: form.studentId,
       email: form.email.trim().toLowerCase(),
-      faculty: form.faculty,
+      faculty: form.role === ROLES.STUDENT ? form.faculty : "",
+      department: form.role === ROLES.LIBRARIAN ? form.department : "",
       role: form.role,
       password: form.password,
       phone: "",
@@ -73,22 +76,38 @@ export default function Register() {
         <label>University email</label>
         <input name="email" type="email" value={form.email} onChange={handleChange} />
         {errors.email && <p className="error">{errors.email}</p>}
-
-        <label>Faculty</label>
-        <select name="faculty" value={form.faculty} onChange={handleChange}>
-          <option value="">Select faculty</option>
-          {FACULTIES.map((f) => (
-            <option key={f} value={f}>{f}</option>
-          ))}
-        </select>
-        {errors.faculty && <p className="error">{errors.faculty}</p>}
-
-        <label>I am a</label>
+      <label>I am a</label>
         <select name="role" value={form.role} onChange={handleChange}>
           <option value={ROLES.STUDENT}>Student</option>
           <option value={ROLES.LIBRARIAN}>Librarian</option>
         </select>
 
+             {form.role === ROLES.STUDENT ? (
+          <>
+            <label>Faculty</label>
+            <select name="faculty" value={form.faculty} onChange={handleChange}>
+              <option value="">Select faculty</option>
+              {FACULTIES.map((f) => (
+                <option key={f} value={f}>{f}</option>
+              ))}
+            </select>
+            {errors.faculty && <p className="error">{errors.faculty}</p>}
+          </>
+        ) : (
+          <>
+            <label>Library department</label>
+            <select name="department" value={form.department} onChange={handleChange}>
+              <option value="">Select department</option>
+              {LIBRARY_DEPARTMENTS.map((d) => (
+                <option key={d} value={d}>{d}</option>
+              ))}
+            </select>
+            {errors.department && <p className="error">{errors.department}</p>}
+          </>
+        )}
+        {errors.faculty && <p className="error">{errors.faculty}</p>}
+
+       
         <label>Password</label>
         <input name="password" type="password" value={form.password} onChange={handleChange} />
         {errors.password && <p className="error">{errors.password}</p>}
