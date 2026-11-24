@@ -8,12 +8,6 @@ import "./styles.css";
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/register">Register</Link> |{" "}
-        <Link to="/login">Log In</Link> |{" "}
-        <Link to="/student-profile">Student Profile</Link> |{" "}
-        <Link to="/librarian-profile">Librarian Profile</Link>
-      </nav>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/register" element={<Register />} />
