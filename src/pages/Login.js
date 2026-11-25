@@ -49,7 +49,7 @@ export default function Login() {
         <h2>Welcome back</h2>
         <p className="subtitle">Log in to search, reserve and review books.</p>
 
-        <label>University email</label>
+        <label>Email</label>
         <input name="email" type="email" value={form.email} onChange={handleChange} />
         {errors.email && <p className="error">{errors.email}</p>}
 
