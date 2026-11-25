@@ -21,7 +21,7 @@ export default function Register() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  // بترجّع object فيه الأخطاء (فاضي = كله تمام)
+  
   function validate() {
     const err = {};
     if (form.fullName.trim().length < 3) err.fullName = "Full name must be at least 3 characters";
@@ -40,8 +40,6 @@ export default function Register() {
     const err = validate();
     setErrors(err);
     if (Object.keys(err).length > 0) return;
-
-    // شكل البيانات المتفق عليه مع باقي التيم
     saveUser({
       fullName: form.fullName.trim(),
       studentId: form.studentId,
