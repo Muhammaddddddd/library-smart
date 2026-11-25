@@ -71,7 +71,7 @@ export default function Register() {
         <input name="studentId" value={form.studentId} onChange={handleChange} placeholder="e.g. 20231234" />
         {errors.studentId && <p className="error">{errors.studentId}</p>}
 
-        <label>University email</label>
+        <label>Email</label>
         <input name="email" type="email" value={form.email} onChange={handleChange} />
         {errors.email && <p className="error">{errors.email}</p>}
       <label>I am a</label>
