@@ -63,7 +63,7 @@ export default function LibrarianProfile() {
   }
 
   return (
-    <div className="page">
+    <div className="page bg-page bg-librarian">
       <div className="card">
         <h2>Librarian Profile</h2>
         <p className="subtitle">Library staff account</p>

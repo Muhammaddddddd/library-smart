@@ -66,7 +66,7 @@ export default function StudentProfile() {
   }
 
   return (
-    <div className="page">
+    <div className="page bg-page bg-student">
       <div className="card">
         <h2>Student Profile</h2>
         <p className="subtitle">Smart Library student account</p>
