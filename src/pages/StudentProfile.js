@@ -137,6 +137,7 @@ export default function StudentProfile() {
         )}
 
         <p className="link">
+          /* Styles for Student Profile layout, form inputs, and action buttons */
           <a href="/login" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
             Log out
           </a>
