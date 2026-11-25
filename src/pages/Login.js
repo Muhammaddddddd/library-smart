@@ -44,7 +44,7 @@ export default function Login() {
   }
 
   return (
-    <div className="page">
+    <div className="page bg-page bg-login">
       <form className="card" onSubmit={handleSubmit} noValidate>
         <h2>Welcome back</h2>
         <p className="subtitle">Log in to search, reserve and review books.</p>

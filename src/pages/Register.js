@@ -58,7 +58,7 @@ export default function Register() {
   }
 
   return (
-    <div className="page">
+    <div className="page bg-page bg-register">
       <form className="card" onSubmit={handleSubmit} noValidate>
         <h2>Create your library account</h2>
         <p className="subtitle">Join Smart Library to search, reserve and review books.</p>

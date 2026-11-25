@@ -1,0 +1,235 @@
+/* ==========================================================
+   Smart Library - brown theme
+   Sections: colors, base, nav, headings, forms, buttons,
+   cards/tables, responsive
+   ========================================================== */
+
+/* ---- Colors (variables) ---- */
+:root {
+  --brown-900: #3e2723;
+  --brown-700: #5d4037;
+  --brown-500: #8d6e63;
+  --brown-300: #bcaaa4;
+  --cream:     #f5ebe0;
+  --paper:     #fffaf3;
+  --gold:      #c8963e;
+}
+
+
+/* ---- Base styles ---- */
+* {
+  box-sizing: border-box;
+}
+
+/* [تعديل 1] شلت بس سطر الصورة (مسار C:\Users\...) لأنه مش هيشتغل
+   عند حد غيرك، وكل صفحة ليها صورتها الخاصة دلوقتي. الباقي زي ما هو */
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(rgba(245, 235, 224, 0.85), rgba(245, 235, 224, 0.85));
+  color: var(--brown-900);
+  line-height: 1.6;
+}
+
+/* ---- Navigation and links ---- */
+nav {
+  background: var(--brown-900);
+  color: var(--brown-500);
+  padding: 14px 24px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 4px solid var(--gold);
+}
+
+a {
+  color: var(--brown-300);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+
+/* ---- Headings and page container ---- */
+h1 {
+  text-align: center;
+  color: var(--brown-700);
+  margin: 32px 0 8px;
+  font-size: 2rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  margin: 10px auto 0;
+}
+
+.page {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+
+/* ---- Forms ---- */
+.form {
+  background: var(--paper);
+  border: 1px solid var(--brown-300);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.15);
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: bold;
+  color: var(--brown-700);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--brown-300);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--brown-500);
+  box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.3);
+}
+
+
+/* ---- Buttons and messages ---- */
+button, .btn {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--brown-700);
+  color: var(--paper);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover, .btn:hover {
+  background: var(--brown-900);
+}
+
+button:disabled {
+  background: var(--brown-300);
+  cursor: not-allowed;
+}
+
+.error {
+  color: #8b1a1a;
+  background: #f8e1de;
+  border-left: 4px solid #8b1a1a;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.success {
+  color: #3d5a2a;
+  background: #e6efd9;
+  border-left: 4px solid #3d5a2a;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+
+/* ---- Cards and tables ---- */
+.profile {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--brown-300);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.15);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+}
+
+th {
+  background: var(--brown-700);
+  color: var(--paper);
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--brown-300);
+}
+
+tr:hover td {
+  background: var(--cream);
+}
+
+
+/* ---- Responsive ---- */
+/* [تعديل 2] قفلت الـ @media هنا، وشلت قسمي .student-bg و .librarian-bg
+   (كانوا محطوطين جواه بالغلط + } زيادة في آخر الملف)، واتعوضوا بالصور تحت */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .form {
+    padding: 18px;
+  }
+
+  nav {
+    justify-content: center;
+  }
+}
+
+
+.bg-page {
+  max-width: none;
+  margin: 0;
+  min-height: 100vh;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-page > * {
+  width: 100%;
+  max-width: 480px;
+}
+
